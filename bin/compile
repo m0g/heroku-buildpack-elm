@@ -46,6 +46,7 @@ if [ $CACHE_BUILD_OBJECTS = true ]; then
     if test -d ${cache}/elm-stuff; then
         echo "-----> Restoring Elm cache"
         cp -r ${cache}/elm-stuff ${build}/elm-stuff
+        cp -r ${cache}/.elm ${build}/.elm
     fi
 fi
 
@@ -59,10 +60,6 @@ get_app_json_env() {
     python -c "from __future__ import print_function; import json; j=json.load(open('app.json')); print(j['env']['${name}'])"
 }
 
-if test -d /app/.elm; then
-  rm -r /app/.elm
-fi
-
 ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
 echo "-----> Compiling with ${ELM_COMPILE}"
 ${ELM_COMPILE} | indent
@@ -70,4 +67,5 @@ ${ELM_COMPILE} | indent
 if [ $CACHE_BUILD_OBJECTS = true ]; then
     # Copy package and compile artifacts back to cache
     cp -r ${build}/elm-stuff ${cache}/
+    cp -r ${build}/.elm ${cache}/
 fi
