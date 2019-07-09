@@ -10,7 +10,6 @@ mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
 buildpack=$(cd "$(dirname $0)/.." && pwd)
-rm -r /app/.elm
 
 
 # Accept user-defined environment
@@ -59,6 +58,10 @@ get_app_json_env() {
     fi
     python -c "from __future__ import print_function; import json; j=json.load(open('app.json')); print(j['env']['${name}'])"
 }
+
+if test -d /app/.elm; then
+  rm -r /app/.elm
+fi
 
 ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
 echo "-----> Compiling with ${ELM_COMPILE}"
