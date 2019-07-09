@@ -43,7 +43,7 @@ chmod -R a+x ${cache}/bin
 
 # Restore elm package cache
 if [ $CACHE_BUILD_OBJECTS = true ]; then
-    if test -d ${cache}/elm-stuff; then
+    if [[ -d ${cache}/elm-stuff && -d ${cache}/.elm ]]; then
         echo "-----> Restoring Elm cache"
         cp -r ${cache}/elm-stuff ${build}/elm-stuff
         cp -r ${cache}/.elm ${build}/.elm
