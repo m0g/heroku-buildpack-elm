@@ -46,7 +46,7 @@ if [ $CACHE_BUILD_OBJECTS = true ]; then
     if [[ -d ${cache}/elm-stuff && -d ${cache}/.elm ]]; then
         echo "-----> Restoring Elm cache"
         cp -r ${cache}/elm-stuff ${build}/elm-stuff
-        cp -r ${cache}/.elm ${build}/.elm
+        cp -r ${cache}/.elm ~/.elm
     fi
 fi
 
@@ -67,5 +67,5 @@ ${ELM_COMPILE} | indent
 if [ $CACHE_BUILD_OBJECTS = true ]; then
     # Copy package and compile artifacts back to cache
     cp -r ${build}/elm-stuff ${cache}/
-    cp -r ${build}/.elm ${cache}/
+    cp -r ~/.elm ${cache}/
 fi
