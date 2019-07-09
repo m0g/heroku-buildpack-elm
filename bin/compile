@@ -63,6 +63,7 @@ get_app_json_env() {
 ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
 echo "-----> Compiling with ${ELM_COMPILE}"
 ${ELM_COMPILE} | indent
+npm install
 
 if [ $CACHE_BUILD_OBJECTS = true ]; then
     # Copy package and compile artifacts back to cache
