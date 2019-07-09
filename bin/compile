@@ -10,6 +10,7 @@ mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
 cache=$(cd "$2/" && pwd)
 buildpack=$(cd "$(dirname $0)/.." && pwd)
+rm -r /app/.elm
 
 
 # Accept user-defined environment
