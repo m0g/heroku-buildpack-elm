@@ -41,15 +41,6 @@ tar -zxvf binaries-for-linux.tar.gz
 
 chmod -R a+x ${cache}/bin
 
-# Restore elm package cache
-if [ $CACHE_BUILD_OBJECTS = true ]; then
-    if [[ -d ${cache}/elm-stuff && -d ${cache}/.elm ]]; then
-        echo "-----> Restoring Elm cache"
-        cp -r ${cache}/elm-stuff ${build}/elm-stuff
-        cp -r ${cache}/.elm ~/.elm
-    fi
-fi
-
 cd ${build}
 
 get_app_json_env() {
@@ -64,8 +55,4 @@ ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
 echo "-----> Compiling with ${ELM_COMPILE}"
 ${ELM_COMPILE} | indent
 
-if [ $CACHE_BUILD_OBJECTS = true ]; then
-    # Copy package and compile artifacts back to cache
-    cp -r ${build}/elm-stuff ${cache}/
-    cp -r ~/.elm ${cache}/
-fi
+
