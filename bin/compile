@@ -56,7 +56,7 @@ get_app_json_env() {
     python -c "from __future__ import print_function; import json; j=json.load(open('app.json')); print(j['env']['${name}'])"
 }
 
-ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
+#ELM_COMPILE=$(get_app_json_env "ELM_COMPILE")
 echo "-----> Compiling with ${ELM_COMPILE}"
 ${ELM_COMPILE} | indent
 
