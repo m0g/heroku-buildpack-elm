@@ -36,7 +36,7 @@ PATH=${cache}/bin/elm-${ELM_VERSION}:$PATH
 
 mkcd ${cache}/bin/elm-${ELM_VERSION}
 echo "-----> Retrieving ${ELM_VERSION}"
-wget -nv -c "https://github.com/elm/compiler/releases/download/0.19.0/binaries-for-linux.tar.gz"
+wget -nv -c "https://github.com/elm/compiler/releases/download/${ELM_VERSION}/binaries-for-linux.tar.gz"
 echo "-----> Extracting ${ELM_VERSION}"
 tar -zxvf binaries-for-linux.tar.gz
 echo "-----> MV"
