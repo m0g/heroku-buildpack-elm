@@ -39,6 +39,7 @@ echo "-----> Retrieving ${ELM_VERSION}"
 wget -nv -c "https://github.com/elm/compiler/releases/download/0.19.0/binaries-for-linux.tar.gz"
 echo "-----> Extracting ${ELM_VERSION}"
 tar -zxvf binaries-for-linux.tar.gz
+mv elm ${cache}/bin
 
 echo "-----> Chmod"
 chmod -R a+x ${cache}/bin
