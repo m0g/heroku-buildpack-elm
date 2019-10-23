@@ -39,11 +39,13 @@ echo "-----> Retrieving ${ELM_VERSION}"
 wget -nv -c "https://github.com/elm/compiler/releases/download/0.19.0/binaries-for-linux.tar.gz"
 echo "-----> Extracting ${ELM_VERSION}"
 tar -zxvf binaries-for-linux.tar.gz
+echo "-----> MV"
 mv elm ${cache}/bin
 
 echo "-----> Chmod"
-chmod -R a+x ${cache}/bin
+chmod a+x ${cache}/bin/elm
 
+echo "-----> CD"
 cd ${build}
 
 get_app_json_env() {
