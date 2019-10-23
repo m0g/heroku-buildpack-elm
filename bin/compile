@@ -40,7 +40,7 @@ wget -nv -c "https://github.com/elm/compiler/releases/download/${ELM_VERSION}/bi
 echo "-----> Extracting ${ELM_VERSION}"
 gunzip binary-for-linux-64-bit.gz
 echo "-----> MV"
-mv binary-for-linux-64-bit ${cache}/bin
+mv binary-for-linux-64-bit ${cache}/bin/elm
 
 echo "-----> Chmod"
 chmod a+x ${cache}/bin/elm
